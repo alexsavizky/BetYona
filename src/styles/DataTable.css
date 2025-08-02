@@ -1,0 +1,24 @@
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.even-row {
+    background-color: #c4fca4;
+}
+
+.odd-row {
+    background-color: #b3e89e;
+}
+
+th {
+    background-color: #5bda5b;
+    color: black;
+    font-weight: bold;
+}

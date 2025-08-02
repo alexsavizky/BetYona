@@ -1,0 +1,19 @@
+.custom-input {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #f0ff78; /* Light yellow border */
+    border-radius: 10px;
+    background-color: #d3d3d3; /* Gray background */
+    color: black; /* Placeholder and text color */
+    outline: none;
+  }
+  
+  .custom-input::placeholder {
+    font-style: italic;
+    color: gray;
+  }
+  

@@ -1,0 +1,43 @@
+.header {
+    background: linear-gradient(to right,#58d158, #1a9b1a );
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: right; /* Center everything initially */
+    align-items: right;
+    position: relative; /* Needed for absolute positioning */
+  }
+  
+  .header h1 {
+    font-size: 40px;
+    margin-top: 2.5%;
+    position: absolute; /* Keep it centered regardless of the logo */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Prevents text from breaking */
+  }
+  .icons-con{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo1 {
+    width:100px;
+    display: flex;
+  }
+  .logo2 {
+    height: 50px;
+  }
+  .user-info{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    left: 50px;
+    gap:20px;
+    top: 50%;
+    transform: translateY(-50%); /* Center it vertically */
+  }
+  .user-name{
+    font-size: 18px;
+  }

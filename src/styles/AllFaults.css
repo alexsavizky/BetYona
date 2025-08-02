@@ -1,0 +1,8 @@
+.all-faults-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #d4ffb2;
+    min-height: 100vh;
+}

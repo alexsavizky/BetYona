@@ -1,0 +1,17 @@
+.custom-button {
+    background-color: #d6e815; /* Light yellow-green */
+    color: black; /* Black text */
+    font-size: 18px; /* Adjust size */
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    text-align: center;
+    direction: rtl; /* Right-to-left for Hebrew */
+  }
+  
+  .custom-button:hover {
+    background-color: #c4d414; /* Slightly darker shade on hover */
+  }
+  
