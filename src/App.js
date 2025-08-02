@@ -76,7 +76,7 @@ function App() {
         <Route
           path="/all"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute>+
               <AllFaults />
             </ProtectedRoute>
           }

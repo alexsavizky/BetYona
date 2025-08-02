@@ -19,7 +19,7 @@ const SearchBar = ({ onSearch }) => {
         onChange={(e) => setSearchText(e.target.value)}
       />
       <SelectInput
-        options={["לפי קטגוריה", "מיקום", "שנה", "פיקוד"]}
+        options={["לפי קטגוריה", "מיקום", "שנה", "פקיד"]}
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       />

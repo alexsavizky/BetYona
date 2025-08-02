@@ -5,7 +5,7 @@ import {
   query,
   where,
   addDoc,
-  orderBy,
+  orderBy,doc, updateDoc
 } from "firebase/firestore";
 
 export const fetchFaults = async () => {
@@ -18,7 +18,7 @@ export const fetchFaults = async () => {
       id: doc.id,
       ...doc.data(),
     }));
-
+    
     const ownerUids = [
       ...new Set(faultsArray.map((fault) => fault.owner_uid).filter(Boolean)),
     ];
@@ -38,24 +38,14 @@ export const fetchFaults = async () => {
     }
 
     const faultData = faultsArray.map((fault) => {
-      let locationName = "";
-      switch (fault.location) {
-        case 0:
-          locationName = "חדר";
-          break;
-        case 1:
-          locationName = "שלב א";
-          break;
-        case 2:
-          locationName = "שלב ב";
-          break;
-        default:
-          locationName = "לא ידוע";
-      }
+      let locationName =fault.location.toString();
+      
 
       const dateTime = fault.date_time.toDate();
       const date = dateTime.toLocaleDateString("he-IL");
-      const time = dateTime.toLocaleTimeString("he-IL");
+      const time = dateTime.toLocaleTimeString("he-IL",{
+  hour: "2-digit",
+  minute: "2-digit",});
 
       const userName = userMap[fault.owner_uid] || "לא ידוע";
       const isFixed = fault.fixed_id ? "✔️" : "";
@@ -96,4 +86,8 @@ export const addFault = async (fault) => {
     console.error("Error adding fault:", error);
     throw error;
   }
+};
+export const updateFault = async (id, data) => {
+  const faultRef = doc(db, "fault", id);
+  await updateDoc(faultRef, data);
 };

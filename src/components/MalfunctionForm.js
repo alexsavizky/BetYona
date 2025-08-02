@@ -45,14 +45,20 @@ const MalfunctionForm = () => {
 
       <label className="form-label">איפה התקלה</label>
       <SelectInput
-        options={["חדר", "שלב א", "שלב ב"]}
+        options={["חדר", "שלב א", "שלב ב","שלב ג","סיעודי"]}
         value={location}
         onChange={(e) => setLocation(e.target.value)}
       />
 
       <label className="form-label">באיזה חדר</label>
       <TextInput
-        placeholder="מספר חדר"
+      placeholder={
+    location === "חדר"
+      ? "מספר חדר"
+      
+
+      : "פרט מיקום"
+  }
         value={roomNumber}
         onChange={(e) => setRoomNumber(e.target.value)}
       />
