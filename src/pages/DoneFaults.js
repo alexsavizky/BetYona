@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { fetchFaults } from "../services/faultService"; // Import the function
+import { fetchFaults } from "../services/faultService";
 import SearchBar from "../components/SearchBar";
 import DataTable from "../components/DataTable";
 import Pagination from "../components/Pagination";
 import "../styles/AllFaults.css";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
-import { filterFaults } from "../utils/searchUtils"; // Import the utility function
-
-const AllFaults = () => {
+import { filterFaults } from "../utils/searchUtils";
+const DoneFaults = () => {
   const items_for_page = 10;
   const [faults, setFaults] = useState([]);
   const [filteredFaults, setFilteredFaults] = useState([]);
@@ -19,20 +18,22 @@ const AllFaults = () => {
     const loadFaults = async () => {
       try {
         const faultData = await fetchFaults();
-        setFaults(faultData);
-        setFilteredFaults(faultData);
+        const doneFaults = faultData.filter(fault => fault.done === "✔️");
+        setFaults(doneFaults);
+        setFilteredFaults(doneFaults);
       } catch (error) {
         console.error("Error fetching faults:", error);
       } finally {
         setLoading(false);
       }
     };
-
     loadFaults();
   }, []);
-const handleSearch = (text, category) => {
+
+  const handleSearch = (text, category) => {
   setFilteredFaults(filterFaults(faults, text, category));
 };
+
   const totalPages = Math.ceil(filteredFaults.length / items_for_page);
 
   return (
@@ -67,4 +68,4 @@ const handleSearch = (text, category) => {
   );
 };
 
-export default AllFaults;
+export default DoneFaults;

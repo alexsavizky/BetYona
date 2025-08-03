@@ -7,6 +7,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { useUser } from "./context/UserContext";
 import FaultsPage from "./pages/FaultsPage";
 import AllFaults from "./pages/AllFaults";
+import DoneFaults from "./pages/DoneFaults";
+import OpenFaults from "./pages/OpenFaults";
+import UserManagement from "./pages/UserManagement";
 function App() {
   const { user, setUser } = useUser();
 
@@ -61,7 +64,7 @@ function App() {
           path="/unresolved"
           element={
             <ProtectedRoute>
-              <h1>תקלות שלא טופלו</h1>
+              <OpenFaults />
             </ProtectedRoute>
           }
         />
@@ -69,18 +72,27 @@ function App() {
           path="/resolved"
           element={
             <ProtectedRoute>
-              <h1>תקלות שטופלו</h1>
+              <DoneFaults />
             </ProtectedRoute>
           }
         />
         <Route
+  path="/users"
+  element={
+    <ProtectedRoute>
+      <UserManagement />
+    </ProtectedRoute>
+  }
+/>
+        <Route
           path="/all"
           element={
-            <ProtectedRoute>+
+            <ProtectedRoute>
               <AllFaults />
             </ProtectedRoute>
           }
         />
+        
       </Routes>
     </Router>
   );
