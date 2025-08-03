@@ -54,3 +54,62 @@
   min-width: 200px;
   max-width: 400px;
 }
+@media (max-width: 700px) {
+  /* Hide unwanted columns on mobile */
+  .col-date,
+  .col-time,
+  .col-command
+  {
+    display: none;
+  }
+ 
+
+ .data-table th:nth-child(4),
+.data-table td:nth-child(4) {
+  width:30px;
+  min-width: 40px;
+  max-width: 70px;
+  text-align: center;
+}
+
+ .data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+  width:20px;
+  min-width: 40px;
+  max-width: 70px;
+  text-align: center;
+}
+
+  /* Table rows should stay as table rows */
+  .data-table thead tr,
+  .data-table tbody tr {
+    display: table-row;
+  }
+
+  /* Responsive column width */
+  .data-table thead tr th,
+  .data-table tbody tr td {
+    width: 33%;
+  }
+
+  /* Expand button style */
+  .expand-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #1e90ff;
+  }
+
+  /* Extra info box for mobile */
+  .mobile-extra-info {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 6px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-size: 0.98em;
+    text-align: right;
+  }
+  
+}
